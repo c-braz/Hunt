@@ -1,0 +1,1 @@
+get-WmiObject -class win32_process | select -ExpandProperty executablepath |  Get-AuthenticodeSignature | where{$_.status -ne "valid"}
