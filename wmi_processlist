@@ -1,0 +1,1 @@
+Get-WmiObject -class win32_process | select -Property PSComputerName,ProcessName,CreationDate,ProcessId,parentProcessId,SessionId,ExecutablePath,CommandLine | Export-Csv -path ./proc.csv

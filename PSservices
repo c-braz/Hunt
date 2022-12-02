@@ -1,0 +1,2 @@
+$services = gci hklm:\system\currentcontrolset\services
+$services| Get-ItemProperty | select -property PSChildName,objectname,DisplayName,Owners,Start,ImagePath | Export-Csv ./services.csv
