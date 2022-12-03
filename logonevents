@@ -1,0 +1,4 @@
+
+$logs = Get-WinEvent -FilterHashtable @{LogName='security';id=4624} -MaxEvents 1000 -ComputerName localhost
+$logs | ForEach-Object {$logonevent = [PSCustomObject]@{time = $_.TimeCreated; User = $_.properties[5].value; LogonType = $_.properties[8].value; SourceAddress = $_.properties[18].value};[array]$logonevents+=$logonevent}
+$logonevents
